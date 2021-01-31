@@ -5,43 +5,49 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumnFor
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.Divider
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.github.sasakitomohiro.listcomposesample.ScreenType
 
 @Composable
 fun SampleList(
-    items: List<Pair<String, String>>
+    navigate: (ScreenType) -> Unit
 ) {
-    LazyColumnFor(
-        items = items,
+    LazyColumn(
         modifier = Modifier
             .fillMaxWidth()
             .fillMaxSize()
     ) {
-        SampleListItem(
-            title = it.first,
-            content = it.second
-        )
-        Divider()
+        itemsIndexed(ScreenType.values()) { _, item ->
+            SampleListItem(
+                screenType = item,
+                navigate = navigate
+            )
+            Divider()
+        }
     }
 }
 
 @Composable
 fun SampleListItem(
-    title: String,
-    content: String
+    screenType: ScreenType,
+    navigate: (ScreenType) -> Unit
 ) {
     Column(
         modifier = Modifier
-            .clickable(onClick = {})
+            .clickable(
+                onClick = {
+                    navigate(screenType)
+                }
+            )
             .padding(10.dp)
             .fillMaxWidth()
     ) {
-        Text(title)
-        Text(content)
+        Text(screenType.name)
     }
 }

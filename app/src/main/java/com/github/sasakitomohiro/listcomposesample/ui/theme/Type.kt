@@ -1,4 +1,4 @@
-package com.github.sasakitomohiro.listcomposesample.ui
+package com.github.sasakitomohiro.listcomposesample.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

@@ -14,7 +14,6 @@ class MainActivity : AppCompatActivity() {
 
         setContent {
             ListComposeSampleTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
                     SampleList(
                         items = (0..10).map {

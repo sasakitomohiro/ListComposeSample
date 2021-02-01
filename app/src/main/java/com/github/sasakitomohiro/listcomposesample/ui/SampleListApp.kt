@@ -1,6 +1,7 @@
 package com.github.sasakitomohiro.listcomposesample.ui
 
 import androidx.compose.animation.Crossfade
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -10,6 +11,7 @@ import com.github.sasakitomohiro.listcomposesample.MainViewModel
 import com.github.sasakitomohiro.listcomposesample.ScreenType
 import com.github.sasakitomohiro.listcomposesample.ui.theme.ListComposeSampleTheme
 
+@ExperimentalFoundationApi
 @Composable
 fun SampleListApp(
     viewModel: MainViewModel
@@ -21,7 +23,7 @@ fun SampleListApp(
                 when (screenType) {
                     ScreenType.VERTICAL -> SampleVerticalList(viewModel)
                     ScreenType.HORIZONTAL -> SampleHorizontalList(viewModel)
-                    ScreenType.GRID -> Text(text = "grid")
+                    ScreenType.GRID -> SampleGridList(viewModel)
                 }
             }
         }

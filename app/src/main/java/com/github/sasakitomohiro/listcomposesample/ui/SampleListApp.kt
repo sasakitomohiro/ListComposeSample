@@ -19,7 +19,7 @@ fun SampleListApp(
         Crossfade(current = currentScreenType) { screenType ->
             Surface(color = MaterialTheme.colors.background) {
                 when (screenType) {
-                    ScreenType.VERTICAL -> SampleList(viewModel)
+                    ScreenType.VERTICAL -> SampleVerticalList(viewModel)
                     ScreenType.HORIZONTAL -> Text(text = "horizontal")
                     ScreenType.GRID -> Text(text = "grid")
                 }

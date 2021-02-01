@@ -16,7 +16,7 @@ import com.github.sasakitomohiro.listcomposesample.MainViewModel
 import com.github.sasakitomohiro.listcomposesample.ScreenType
 
 @Composable
-fun SampleList(
+fun SampleVerticalList(
     viewModel: MainViewModel
 ) {
     LazyColumn(
@@ -25,7 +25,7 @@ fun SampleList(
             .fillMaxSize()
     ) {
         itemsIndexed(ScreenType.values()) { _, item ->
-            SampleListItem(
+            SampleVerticalListItem(
                 screenType = item,
                 viewModel = viewModel
             )
@@ -35,7 +35,7 @@ fun SampleList(
 }
 
 @Composable
-fun SampleListItem(
+fun SampleVerticalListItem(
     screenType: ScreenType,
     viewModel: MainViewModel
 ) {
@@ -43,12 +43,14 @@ fun SampleListItem(
         modifier = Modifier
             .clickable(
                 onClick = {
+                    if (screenType == ScreenType.VERTICAL) return@clickable
                     viewModel.navigate(screenType)
                 }
             )
             .padding(10.dp)
             .fillMaxWidth()
     ) {
-        Text(screenType.name)
+        Text("${screenType.name} title")
+        Text("${screenType.name} content")
     }
 }

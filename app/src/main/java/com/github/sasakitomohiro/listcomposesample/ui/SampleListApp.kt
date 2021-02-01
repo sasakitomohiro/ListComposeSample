@@ -20,7 +20,7 @@ fun SampleListApp(
             Surface(color = MaterialTheme.colors.background) {
                 when (screenType) {
                     ScreenType.VERTICAL -> SampleVerticalList(viewModel)
-                    ScreenType.HORIZONTAL -> Text(text = "horizontal")
+                    ScreenType.HORIZONTAL -> SampleHorizontalList(viewModel)
                     ScreenType.GRID -> Text(text = "grid")
                 }
             }

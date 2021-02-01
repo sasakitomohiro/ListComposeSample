@@ -12,11 +12,12 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.github.sasakitomohiro.listcomposesample.MainViewModel
 import com.github.sasakitomohiro.listcomposesample.ScreenType
 
 @Composable
 fun SampleList(
-    navigate: (ScreenType) -> Unit
+    viewModel: MainViewModel
 ) {
     LazyColumn(
         modifier = Modifier
@@ -26,7 +27,7 @@ fun SampleList(
         itemsIndexed(ScreenType.values()) { _, item ->
             SampleListItem(
                 screenType = item,
-                navigate = navigate
+                viewModel = viewModel
             )
             Divider()
         }
@@ -36,13 +37,13 @@ fun SampleList(
 @Composable
 fun SampleListItem(
     screenType: ScreenType,
-    navigate: (ScreenType) -> Unit
+    viewModel: MainViewModel
 ) {
     Column(
         modifier = Modifier
             .clickable(
                 onClick = {
-                    navigate(screenType)
+                    viewModel.navigate(screenType)
                 }
             )
             .padding(10.dp)

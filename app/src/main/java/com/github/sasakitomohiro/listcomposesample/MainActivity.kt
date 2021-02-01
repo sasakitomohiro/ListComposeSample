@@ -14,13 +14,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContent { SampleListApp(viewModel::navigate) }
+        setContent { SampleListApp(viewModel) }
 
         observeState()
     }
 
     private fun observeState() {
-        viewModel.navigateState.observe(this) {
+        viewModel.currentScreenType.observe(this) {
 
         }
     }

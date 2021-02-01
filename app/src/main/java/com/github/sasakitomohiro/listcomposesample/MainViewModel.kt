@@ -8,11 +8,10 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor() : ViewModel() {
-    private val _navigateState = MutableLiveData<ScreenType>()
-    val navigateState: LiveData<ScreenType>
-        get() = _navigateState
+    private val _currentScreenType = MutableLiveData(ScreenType.VERTICAL)
+    val currentScreenType: LiveData<ScreenType> = _currentScreenType
 
     fun navigate(screenType: ScreenType) {
-        _navigateState.value = screenType
+        _currentScreenType.value = screenType
     }
 }

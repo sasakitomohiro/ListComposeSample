@@ -17,7 +17,7 @@ fun SampleListApp(
 ) {
     val currentScreenType = viewModel.currentScreenType.observeAsState(ScreenType.VERTICAL).value
     ListComposeSampleTheme {
-        Crossfade(current = currentScreenType) { screenType ->
+        Crossfade(targetState = currentScreenType) { screenType ->
             Surface(color = MaterialTheme.colors.background) {
                 when (screenType) {
                     ScreenType.VERTICAL -> SampleVerticalList(viewModel)

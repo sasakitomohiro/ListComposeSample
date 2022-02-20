@@ -14,14 +14,14 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.github.sasakitomohiro.listcomposesample.MainViewModel
 import com.github.sasakitomohiro.listcomposesample.ScreenType
 
 @ExperimentalFoundationApi
 @Composable
-fun SampleGridList(
-    viewModel: MainViewModel
-) {
+fun SampleGridList() {
+    val viewModel: MainViewModel = viewModel()
     LazyVerticalGrid(
         cells = GridCells.Fixed(2),
         modifier = Modifier

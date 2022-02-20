@@ -12,13 +12,13 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.github.sasakitomohiro.listcomposesample.MainViewModel
 import com.github.sasakitomohiro.listcomposesample.ScreenType
 
 @Composable
-fun SampleHorizontalList(
-    viewModel: MainViewModel
-) {
+fun SampleHorizontalList() {
+    val viewModel: MainViewModel = viewModel()
     LazyRow(
         modifier = Modifier
             .fillMaxWidth()
